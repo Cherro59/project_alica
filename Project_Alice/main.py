@@ -36,11 +36,11 @@ def offer_class(user_id, req, res):
             if name := entity['value'].get('first_name'):
                 name = name.capitalize()
                 session_state[user_id]['first_name'] = name
-                res['response']['text'] = f"приятно познакомиться {name}, выбери свой класс"
+                res['response']['text'] = f"Приятно познакомиться {name}, выбери свой класс"
                 res['response']['card'] = {
                     'type': 'ItemsList',
                     'header': {
-                        'text': f"приятно познакомиться {name}, выбери свой класс"
+                        'text': f"Приятно познакомиться {name}, выбери свой класс"
                     },
                     'items': [
                         {
@@ -52,18 +52,18 @@ def offer_class(user_id, req, res):
                         {
                             'image_id': player_class['warrior']['img'],
                             'title': player_class['warrior']['name'],
-                            'description': 'Меч - грознеое оружие',
+                            'description': 'Меч - грозное оружие',
 
                         },
                         {
                             'image_id': player_class['rogue']['img'],
                             'title': player_class['rogue']['name'],
-                            'description': 'Лук - грознеое оружие',
+                            'description': 'Лук - грозное оружие',
 
                         }
                     ],
                     'footer': {
-                        'text': 'не ошибись с выбором'
+                        'text': 'Не ошибись с выбором'
                     }
                 }
                 session_state[user_id] = {
@@ -85,7 +85,7 @@ def offer_adventure(user_id, req, res):
                 select_class = 'warrior'
                 break
         except Exception:
-            res['response']['text'] = 'Пожалуйста, повторитите попытку'
+            res['response']['text'] = 'Пожалуйста, повторите попытку'
     print(select_class)
     session_state[user_id].update({
         'class': select_class,
@@ -135,7 +135,7 @@ def offer_fight(user_id, req, res):
                 'title': f'Ваш противник {enemy["name"]}'
             },
             'buttons': [{
-                'title': 'атаковать',
+                'title': 'Атаковать',
                 'payload': {'fight': True},
                 'hide': True
             },
@@ -330,11 +330,11 @@ def adventure1(user_id, req, res):
         res['response']['end_session'] = True
     else:
         res['response'] = {
-            'text': 'ты встретил табличку. Куда ты выберешь пойти?',
+            'text': 'Ты встретил табличку. Куда ты выберешь пойти?',
             'card': {
                 'type': 'BigImage',
                 'image_id': '213044/e6bd78f5c5de76b89ff4',
-                'title': 'ты встретил табличку. Куда ты выберешь пойти?'
+                'title': 'Ты встретил табличку. Куда ты выберешь пойти?'
             },
             'buttons': [{
                 'title': 'Налево',
